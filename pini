@@ -1,1 +1,295 @@
-html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatDoIDo - Descubre algo nuevo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(
+                -45deg, 
+                #151863,  /* Azul oscuro */
+                #1a1a70,  /* Azul medianoche más suave */
+                #251755,  /* Violeta oscuro más suave */
+                #1e1e5a   /* Azul oscuro medio */
+            );
+            background-size: 300% 300%;
+            animation: gradientBG 20s ease-in-out infinite;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            color: white;
+        }
+
+        .hero-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 90%;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .main-button {
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .main-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .main-button:active {
+            transform: translateY(1px);
+        }
+
+        /* How it works section */
+        #how-it-works {
+            min-height: 100vh;
+            padding: 6rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+        }
+
+        .info-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            padding: 2rem;
+            border-radius: 20px;
+            max-width: 800px;
+            width: 90%;
+            margin-top: 2rem;
+        }
+
+        .step {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(8px);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#" class="logo">WhatDoIDo</a>
+        <ul class="nav-links">
+            <li><a href="#hero">Inicio</a></li>
+            <li><a href="#how-it-works">¿Cómo funciona?</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-content">
+            <h1>WhatDoIDo</h1>
+            <p class="subtitle">Descubre un nuevo rincón de Internet con un solo clic</p>
+            <button onclick="goRandom()" class="main-button">¡Llévame a un lugar aleatorio!</button>
+        </div>
+    </section>
+
+    <!-- How it works Section -->
+    <section id="how-it-works">
+        <div class="info-container">
+            <h2>¿Cómo funciona?</h2>
+            <div class="step">
+                <h3>1. Un clic a la aventura</h3>
+                <p>Presiona el botón y déjate sorprender por lo que Internet tiene para ofrecerte.</p>
+            </div>
+            <div class="step">
+                <h3>2. Búsqueda inteligente</h3>
+                <p>Nuestro algoritmo combina términos interesantes para encontrar contenido fascinante.</p>
+            </div>
+            <div class="step">
+                <h3>3. Descubre algo nuevo</h3>
+                <p>Cada clic es una oportunidad de aprender algo nuevo y emocionante.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 WhatDoIDo - Descubre algo nuevo cada día</p>
+    </footer>
+
+    <script>
+        const randomWords = [
+            // Lugares y Viajes
+            "amazing places", "hidden gems", "beautiful destinations", "travel spots",
+            "ancient ruins", "secret locations", "mysterious places", "scenic views",
+            
+            // Cultura y Arte
+            "art gallery", "street art", "modern art", "classical music",
+            "jazz festival", "cultural events", "museum exhibits", "photography",
+            
+            // Ciencia y Tecnología
+            "scientific discoveries", "space exploration", "quantum physics", "artificial intelligence",
+            "robotics projects", "future technology", "inventions", "innovations",
+            
+            // Naturaleza y Medio Ambiente
+            "wildlife photography", "nature wonders", "rare animals", "exotic plants",
+            "ocean life", "mountain peaks", "forests", "waterfalls",
+            
+            // Historia y Civilizaciones
+            "ancient civilizations", "historical events", "archaeological finds", "lost cities",
+            "medieval castles", "historical artifacts", "ancient mysteries", "traditions",
+            
+            // Curiosidades y Descubrimientos
+            "interesting facts", "mind blowing", "unexpected discoveries", "fascinating stories",
+            "unusual phenomena", "strange events", "unique experiences", "rare occurrences"
+        ];
+
+        const combiners = ["and", "meets", "versus", "with", "in", "explores", "discovers"];
+
+        function getRandomWord() {
+            return randomWords[Math.floor(Math.random() * randomWords.length)];
+        }
+
+        function goRandom() {
+            let searchQuery;
+            
+            // 40% de probabilidad de combinar dos términos
+            if (Math.random() < 0.4) {
+                const combiner = combiners[Math.floor(Math.random() * combiners.length)];
+                searchQuery = `${getRandomWord()} ${combiner} ${getRandomWord()}`;
+            } else {
+                searchQuery = getRandomWord();
+            }
+            
+            window.open(`https://www.google.com/search?q=${encodeURIComponent(searchQuery)}&btnI=1`, '_blank');
+        }
+
+        // Smooth scroll para los enlaces de navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
